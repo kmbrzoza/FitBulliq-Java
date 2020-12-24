@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -95,7 +97,10 @@ public class Repository {
             rs.close();
             stmt.close();
         } catch (Exception ex){
-            System.out.println("Blad pobierania posilkow po dacie");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - GetMealsByDate()");
+            alert.setHeaderText("Błąd odczytu posiłków z bazy danych!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
 
         CloseConnection();
@@ -130,7 +135,10 @@ public class Repository {
 
                     listProduct.add(new Product(id, name, kcal, protein, fats, carbohydrates, grams));
                 } else {
-                    System.out.println("Błąd w odczycie informacji o danym produkcie! Repo - GetProductsToMeal()");
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - GetProductsToMeal()");
+                    alert.setHeaderText("Błąd w odczycie informacji o danym produkcie!");
+                    alert.setTitle("Błąd!");
+                    alert.showAndWait();
                 }
                 readerForProductSpecs.close();
                 stmt2.close();
@@ -139,7 +147,10 @@ public class Repository {
             stmt.close();
 
         } catch(Exception ex){
-            System.out.println("Blad pobierania produktow do posilku");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - GetProductsToMeal()");
+            alert.setHeaderText("Błąd odczytu produktów z bazy danych!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
 
         CloseConnection();
@@ -162,7 +173,10 @@ public class Repository {
             rs.close();
             stmt.close();
         } catch (Exception ex){
-            System.out.println("Blad dodawania meala");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - AddMeal()");
+            alert.setHeaderText("Bład dodawania posiłku!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
         return id;
@@ -180,7 +194,10 @@ public class Repository {
             stmt.executeUpdate(queryDeleteMeals);
             stmt.close();
         } catch (Exception ex){
-            System.out.println("Blad usuwania meala");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - RemoveMeal()");
+            alert.setHeaderText("Błąd usuwania posiłku!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
 
         CloseConnection();
@@ -197,7 +214,10 @@ public class Repository {
             stmt.executeUpdate(query);
             stmt.close();
         } catch(Exception ex){
-            System.out.println("Blad dodawania produktu");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - AddProduct()");
+            alert.setHeaderText("Błąd dodawania produktu!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
     }
@@ -222,7 +242,10 @@ public class Repository {
             rs.close();
             stmt.close();
         }catch(Exception ex){
-            System.out.println("Blad GetProductsByText(text)");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - GetProductsByText()");
+            alert.setHeaderText("Błąd odczytu produktów po nazwie!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
         return listProducts;
@@ -241,7 +264,10 @@ public class Repository {
             stmt.executeUpdate(queryDeleteFromProducts);
             stmt.close();
         } catch(Exception ex){
-            System.out.println("Blad RemoveProduct()");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - RemoveProduct()");
+            alert.setHeaderText("Błąd usuwania produktu!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
 
         CloseConnection();
@@ -257,14 +283,17 @@ public class Repository {
             stmt.executeUpdate(query);
             stmt.close();
         } catch (Exception ex){
-            System.out.println("Blad EditProduct()");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - EditProduct()");
+            alert.setHeaderText("Błąd edytowania produktu!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
     }
 
 
     //MEALSPRODUCTS
-    public void AddMealproduct(Meal meal, Product product){
+    public void AddMealProduct(Meal meal, Product product){
         Connect();
 
         String query = "INSERT INTO mealsProducts (idMeal, idProduct, grams) VALUES ("+meal.Id+", "+product.Id+", "+product.Grams+")";
@@ -273,7 +302,10 @@ public class Repository {
             stmt.executeUpdate(query);
             stmt.close();
         } catch(Exception ex){
-            System.out.println("Blad AddMealproduct()");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - AddMealProduct()");
+            alert.setHeaderText("Błąd dodawania produktu do posiłku!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
 
         CloseConnection();
@@ -287,7 +319,10 @@ public class Repository {
             stmt.executeUpdate(query);
             stmt.close();
         } catch(Exception ex){
-            System.out.println("Blad RemoveMealProduct()");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - RemoveMealProduct()");
+            alert.setHeaderText("Błąd usuwania produktu z posiłku!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
     }
@@ -300,7 +335,10 @@ public class Repository {
             stmt.executeUpdate(query);
             stmt.close();
         } catch(Exception ex){
-            System.out.println("Blad EditMealProduct()");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - EditMealProduct()");
+            alert.setHeaderText("Błąd edytowania produktu z posiłku!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
     }
