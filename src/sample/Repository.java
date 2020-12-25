@@ -19,7 +19,10 @@ public class Repository {
             System.out.println("Polaczono z baza danych");
 
         } catch(Exception ex){
-            System.out.println("Nie polaczono z baza danych");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Database");
+            alert.setHeaderText("Błąd polaczenia z baza danych!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
     }
     private void CloseConnection(){
@@ -28,29 +31,11 @@ public class Repository {
             System.out.println("Zakonczono polaczenie z baza danych");
 
         } catch (Exception ex){
-            System.out.println("Nie zakonczono polaczenia z baza danych");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Database");
+            alert.setHeaderText("Błąd zamykania polaczenia z baza danych!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
-    }
-
-    public void insertMeal(){
-        Connect();
-        try{
-            Statement stmt = connection.createStatement();
-            String query = "INSERT INTO meals(name, date) VALUES ('ciasto',2020-12-23)";
-            int a = stmt.executeUpdate(query);
-            int b = -1;
-            ResultSet rs = stmt.getGeneratedKeys();
-            if (rs.next())
-                b = rs.getInt(1);
-            rs.close();
-
-
-            System.out.println(a + " ---- " + b);
-            stmt.close();
-        }catch (Exception ex){
-            System.out.println("Nie udalo sie insertowac");
-        }
-        CloseConnection();
     }
 
     public void createTablesIfNotExist(){
@@ -71,7 +56,10 @@ public class Repository {
             stmt.executeUpdate(query);
             stmt.close();
         } catch (Exception ex){
-            System.out.println("Blad tworzenia tabel");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Repo - createTablesIfNotExist()");
+            alert.setHeaderText("Błąd tworzenia tabel w bazie danych!");
+            alert.setTitle("Błąd!");
+            alert.showAndWait();
         }
         CloseConnection();
     }

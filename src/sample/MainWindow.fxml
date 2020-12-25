@@ -1,11 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
    <children>
-      <Button fx:id="button1" layoutX="233.0" layoutY="188.0" mnemonicParsing="false" onAction="#button1Pressed" text="Button" />
+      <DatePicker fx:id="datePicker" layoutX="7.0" layoutY="10.0" prefHeight="25.0" prefWidth="225.0" />
+      <ComboBox fx:id="comboBoxMeals" layoutX="7.0" layoutY="41.0" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="262.0" layoutY="13.0" prefHeight="17.0" prefWidth="56.0" text="Dzień:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDayMacros" layoutX="262.0" layoutY="31.0" text="0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="262.0" layoutY="56.0" text="Posiłek:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelMealMacros" layoutX="262.0" layoutY="76.0" text="0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="262.0" layoutY="102.0" prefHeight="20.0" prefWidth="271.0" text="Kcal | Białka | Tłuszcze | Węglowodany">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonAddMeal" layoutX="7.0" layoutY="81.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" text="Dodaj posiłek" />
+      <Button fx:id="buttonRemoveMeal" layoutX="137.0" layoutY="81.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" text="Usuń posiłek" />
+      <Button fx:id="buttonAddProduct" layoutX="7.0" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" text="Dodaj produkt" />
+      <Button fx:id="buttonRemoveProduct" layoutX="137.0" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" text="Usuń produkt" />
+      <Button fx:id="buttonEditProduct" layoutX="261.0" layoutY="129.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" text="Edytuj produkt" />
+      <Label layoutX="7.0" layoutY="168.0" prefHeight="20.0" prefWidth="499.0" text="Nazwa produktu | Ilość (g) | Kcal | Białko (g) | Tłuszcze (g) | Węglowodany (g)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listViewMealsProducts" layoutX="8.0" layoutY="188.0" prefHeight="208.0" prefWidth="585.0" />
    </children>
 </Pane>
