@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddMealController">
    <children>
       <Label layoutX="86.0" layoutY="54.0" text="Podaj nazwę posiłku:">
@@ -19,6 +18,6 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button fx:id="buttonAdd" layoutX="96.0" layoutY="148.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="111.0" text="Dodaj posiłek" />
+      <Button fx:id="buttonAdd" layoutX="96.0" layoutY="148.0" mnemonicParsing="false" onAction="#buttonAddPressed" prefHeight="30.0" prefWidth="111.0" text="Dodaj posiłek" />
    </children>
 </AnchorPane>

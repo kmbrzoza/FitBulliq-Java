@@ -1,5 +1,8 @@
 package sample;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Product {
     public int Id;
     public String Name;
@@ -40,15 +43,21 @@ public class Product {
     }
     public double GetProteinByGrams()
     {
-        return (Protein * (Grams * 0.01));
+        BigDecimal bd = new BigDecimal(Protein * (Grams * 0.01));
+        bd = bd.setScale(2,RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
     public double GetFatsByGrams()
     {
-        return (Fats * (Grams * 0.01));
+        BigDecimal bd = new BigDecimal(Fats * (Grams * 0.01));
+        bd = bd.setScale(2,RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
     public double GetCarbohydratesByGrams()
     {
-        return (Carbohydrates * (Grams * 0.01));
+        BigDecimal bd = new BigDecimal(Carbohydrates * (Grams * 0.01));
+        bd = bd.setScale(2,RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
     ///////////////
     public String ToStringWithoutGrams()
@@ -57,7 +66,23 @@ public class Product {
     }
 
     public String toString(){
-        return (""+Name+" | "+Kcal*(Grams * 0.01)+" (kcal) | "+Protein*(Grams * 0.01)+" (g) | "+Fats*(Grams * 0.01)+" (g) | "+Carbohydrates*(Grams * 0.01)+" (g)");
+        BigDecimal bg;
+        bg = new BigDecimal(Kcal*(Grams * 0.01));
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        int kcal = bg.intValue();
+
+        bg = new BigDecimal(Protein*(Grams * 0.01));
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        double prot = bg.doubleValue();
+
+        bg = new BigDecimal(Fats*(Grams * 0.01));
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        double fat = bg.doubleValue();
+
+        bg = new BigDecimal(Carbohydrates*(Grams * 0.01));
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        double carb = bg.doubleValue();
+        return (""+Name+" | "+Grams+ " (g) | "+kcal+" (kcal) | "+prot+" (g) | "+fat+" (g) | "+carb+" (g)");
     }
     @Override
     public boolean equals(Object obj){

@@ -1,5 +1,7 @@
 package sample;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -9,6 +11,10 @@ public class Service {
     public ArrayList<Meal> currentMeals = new ArrayList<>();
     public ArrayList<Product> listProducts = new ArrayList<>();
     public LocalDate date;
+
+    public void initData(){
+        repo.createTablesIfNotExist();
+    }
 
     public void SetMealsByDate(LocalDate date){
         currentMeals = repo.GetMealsByDate(date);
@@ -121,7 +127,9 @@ public class Service {
         {
             sum = sum + meal.GetKcalMeal();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.intValue();
     }
 
     public double GetProteinDay()
@@ -131,7 +139,9 @@ public class Service {
         {
             sum = sum + meal.GetProteinMeal();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.doubleValue();
     }
 
     public double GetFatsDay()
@@ -141,7 +151,9 @@ public class Service {
         {
             sum = sum + meal.GetFatsMeal();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.doubleValue();
     }
 
     public double GetCarbohydratesDay()
@@ -151,7 +163,9 @@ public class Service {
         {
             sum = sum + meal.GetCarbohydratesMeal();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.doubleValue();
     }
 
     public String ToStringMacrosDay()

@@ -1,5 +1,7 @@
 package sample;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -34,7 +36,9 @@ public class Meal {
         {
             sum = sum + listProduct.get(i).GetKcalByGrams();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.intValue();
     }
     public double GetProteinMeal()
     {
@@ -43,7 +47,9 @@ public class Meal {
         {
             sum = sum + listProduct.get(i).GetProteinByGrams();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.doubleValue();
     }
     public double GetFatsMeal()
     {
@@ -52,7 +58,9 @@ public class Meal {
         {
             sum = sum + listProduct.get(i).GetFatsByGrams();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.doubleValue();
     }
     public double GetCarbohydratesMeal()
     {
@@ -61,7 +69,9 @@ public class Meal {
         {
             sum = sum + listProduct.get(i).GetCarbohydratesByGrams();
         }
-        return sum;
+        BigDecimal bg = new BigDecimal(sum);
+        bg = bg.setScale(2, RoundingMode.HALF_UP);
+        return bg.doubleValue();
     }
     //////////
 

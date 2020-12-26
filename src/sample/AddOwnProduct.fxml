@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddOwnProductController">
    <children>
       <Label layoutX="10.0" layoutY="23.0" text="Nazwa produktu:">
          <font>
@@ -36,7 +32,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="spinnerKcal" layoutX="115.0" layoutY="85.0" prefHeight="25.0" prefWidth="188.0" />
       <Label layoutX="325.0" layoutY="87.0" text="kcal/100g">
          <font>
             <Font size="14.0" />
@@ -57,9 +52,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Spinner fx:id="spinnerProteins" layoutX="115.0" layoutY="125.0" prefHeight="25.0" prefWidth="188.0" />
-      <Spinner fx:id="spinnerFats" layoutX="115.0" layoutY="167.0" prefHeight="25.0" prefWidth="188.0" />
-      <Spinner fx:id="spinnerCarbohydrates" layoutX="115.0" layoutY="211.0" prefHeight="25.0" prefWidth="188.0" />
-      <Button fx:id="buttonAdd" layoutX="148.0" layoutY="265.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Dodaj" />
+      <Button fx:id="buttonAdd" layoutX="148.0" layoutY="265.0" mnemonicParsing="false" onAction="#buttonAddPressed" prefHeight="34.0" prefWidth="105.0" text="Dodaj" />
+      <TextField fx:id="textFieldKcal" layoutX="115.0" layoutY="85.0" onAction="#textFieldKcalChanged" onInputMethodTextChanged="#textFieldKcalChanged" onKeyPressed="#textFieldKcalChanged" onKeyReleased="#textFieldKcalChanged" onKeyTyped="#textFieldKcalChanged" prefHeight="25.0" prefWidth="194.0" />
+      <TextField fx:id="textFieldProteins" layoutX="115.0" layoutY="125.0" onAction="#textFieldProteinsChanged" onInputMethodTextChanged="#textFieldProteinsChanged" onKeyPressed="#textFieldProteinsChanged" onKeyReleased="#textFieldProteinsChanged" onKeyTyped="#textFieldProteinsChanged" prefHeight="25.0" prefWidth="194.0" />
+      <TextField fx:id="textFieldFats" layoutX="115.0" layoutY="167.0" onAction="#textFieldFatsChanged" onInputMethodTextChanged="#textFieldFatsChanged" onKeyPressed="#textFieldFatsChanged" onKeyReleased="#textFieldFatsChanged" onKeyTyped="#textFieldFatsChanged" prefHeight="25.0" prefWidth="194.0" />
+      <TextField fx:id="textFieldCarbohydrates" layoutX="115.0" layoutY="211.0" onInputMethodTextChanged="#textFieldCarbohydratesChanged" onKeyPressed="#textFieldCarbohydratesChanged" onKeyReleased="#textFieldCarbohydratesChanged" onKeyTyped="#textFieldCarbohydratesChanged" prefHeight="25.0" prefWidth="194.0" />
    </children>
 </Pane>

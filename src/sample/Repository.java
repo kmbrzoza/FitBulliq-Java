@@ -70,7 +70,7 @@ public class Repository {
         Connect();
 
         String strDate = date.getYear() + "-" + date.getMonthValue() + "-" + date.getDayOfMonth();
-        String query = "SELECT id, name, date FROM meals WHERE date=" + strDate;
+        String query = "SELECT id, name, date FROM meals WHERE date='" + strDate+"'";
         try{
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -149,7 +149,7 @@ public class Repository {
         Connect();
         String dateMeal = meal.Date.getYear() + "-" + meal.Date.getMonthValue() + "-" + meal.Date.getDayOfMonth();
         int id = -1;
-        String query = "INSERT INTO meals (name, date) VALUES ('" + meal.Name + "', "+ dateMeal +")";
+        String query = "INSERT INTO meals (name, date) VALUES ('" + meal.Name + "', '"+ dateMeal +"')";
         try{
             Statement stmt = connection.createStatement();
 
@@ -213,7 +213,7 @@ public class Repository {
     public ArrayList<Product> GetProductsByText(String text){
         ArrayList<Product> listProducts = new ArrayList<>();
         Connect();
-        String query = "SELECT id, name, kcal, protein, fats, carbohydrates FROM products WHERE NAME LIKE '"+ text +"'";
+        String query = "SELECT id, name, kcal, protein, fats, carbohydrates FROM products WHERE name LIKE '%"+ text +"%'";
         try{
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -224,7 +224,6 @@ public class Repository {
                 double protein = rs.getDouble("protein");
                 double fats = rs.getDouble("fats");
                 double carbohydrates = rs.getDouble("carbohydrates");
-
                 listProducts.add(new Product(id, name, kcal, protein, fats, carbohydrates));
             }
             rs.close();
@@ -264,7 +263,7 @@ public class Repository {
     public void EditProduct(Product product, Product productEdited){
         Connect();
 
-        String query = "UPDATE products SET name="+ productEdited.Name +", kcal="+productEdited.Kcal+", protein="+productEdited.Protein+", fats="+productEdited.Fats+"," +
+        String query = "UPDATE products SET name='"+ productEdited.Name +"', kcal="+productEdited.Kcal+", protein="+productEdited.Protein+", fats="+productEdited.Fats+"," +
                 "carbohydrates="+productEdited.Carbohydrates+" WHERE Id="+ product.Id;
         try{
             Statement stmt = connection.createStatement();
