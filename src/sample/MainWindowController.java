@@ -190,7 +190,7 @@ public class MainWindowController implements Initializable {
                 EditMealProductController controller = loader.getController();
                 controller.initData(service, meal, productToEdit);
 
-                stageAddMeal.setTitle("FitBulliq Java - Dodaj produkt");
+                stageAddMeal.setTitle("FitBulliq Java - Edytuj produkt");
                 stageAddMeal.setResizable(false);
                 stageAddMeal.initModality(Modality.WINDOW_MODAL);
                 stageAddMeal.initOwner(((Node) event.getSource()).getScene().getWindow());
