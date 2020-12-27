@@ -93,7 +93,6 @@ public class MainWindowController implements Initializable {
     public void buttonAddMealPressed(ActionEvent event) throws Exception{
         LocalDate selectedDate = datePicker.getValue();
         String date = selectedDate.getYear() + "-" + selectedDate.getMonthValue() + "-" + selectedDate.getDayOfMonth();
-        System.out.println(date);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddMeal.fxml"));
 

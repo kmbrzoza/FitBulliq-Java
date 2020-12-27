@@ -60,7 +60,6 @@ public class AddProductController implements Initializable {
         service.SetListProductsByText(text);
         for(int i=0; i< service.listProducts.size(); i++) {
             listViewProducts.getItems().add(service.listProducts.get(i).ToStringWithoutGrams());
-            System.out.println(service.listProducts.get(i).ToStringWithoutGrams());
         }
     }
 

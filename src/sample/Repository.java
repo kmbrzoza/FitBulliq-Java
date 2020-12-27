@@ -16,9 +16,10 @@ public class Repository {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:database.db");
-            System.out.println("Polaczono z baza danych");
+            //System.out.println("Polaczono z baza danych");
 
         } catch(Exception ex){
+            System.out.println(ex.getMessage());
             Alert alert = new Alert(Alert.AlertType.WARNING, "Database");
             alert.setHeaderText("Błąd polaczenia z baza danych!");
             alert.setTitle("Błąd!");
@@ -28,7 +29,7 @@ public class Repository {
     private void CloseConnection(){
         try{
             connection.close();
-            System.out.println("Zakonczono polaczenie z baza danych");
+            //System.out.println("Zakonczono polaczenie z baza danych");
 
         } catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING, "Database");
