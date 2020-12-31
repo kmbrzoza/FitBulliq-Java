@@ -168,8 +168,8 @@ public class AddProductController implements Initializable {
 
             UpdateListViewOfProducts();
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Posiłek");
-            alert.setHeaderText("Musisz wybrać posiłek aby go usunąć!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Produkt");
+            alert.setHeaderText("Musisz wybrać produkt aby go usunąć!");
             alert.setTitle("Błąd!");
             alert.showAndWait();
         }
@@ -195,8 +195,8 @@ public class AddProductController implements Initializable {
 
             UpdateListViewOfProducts();
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Ilość gram");
-            alert.setHeaderText("Musisz wybrać posiłek aby wpisać ilość!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Produkt");
+            alert.setHeaderText("Musisz wybrać produkt aby go edytować!");
             alert.setTitle("Błąd!");
             alert.showAndWait();
         }

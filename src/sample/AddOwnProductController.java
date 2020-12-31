@@ -86,7 +86,7 @@ public class AddOwnProductController {
             }
         } catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING, "Ilość białka");
-            alert.setHeaderText("Musisz wpisać liczbę rzeczywistą do ilości białka!");
+            alert.setHeaderText("Musisz wpisać liczbę rzeczywistą dodatnią do ilości białka!");
             alert.setTitle("Błąd!");
             alert.showAndWait();
             textFieldProteins.setText("" + 0.0);
@@ -105,7 +105,7 @@ public class AddOwnProductController {
             }
         } catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING, "Ilość tłuszczy");
-            alert.setHeaderText("Musisz wpisać liczbę rzeczywistą do ilości tłuszczy!");
+            alert.setHeaderText("Musisz wpisać liczbę rzeczywistą dodatnią do ilości tłuszczy!");
             alert.setTitle("Błąd!");
             alert.showAndWait();
             textFieldFats.setText("" + 0.0);
@@ -124,7 +124,7 @@ public class AddOwnProductController {
             }
         } catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING, "Ilość węglowodanów");
-            alert.setHeaderText("Musisz wpisać liczbę rzeczywistą do ilości węglowodanów!");
+            alert.setHeaderText("Musisz wpisać liczbę rzeczywistą dodatnią do ilości węglowodanów!");
             alert.setTitle("Błąd!");
             alert.showAndWait();
             textFieldCarbohydrates.setText("" + 0.0);
